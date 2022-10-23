@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from __future__ import absolute_import
+from st2common import transport
 from st2common.persistence import base
 from st2common.models.db.pack import pack_access
 from st2common.models.db.pack import config_schema_access
@@ -28,6 +29,12 @@ class Pack(base.Access):
     @classmethod
     def _get_impl(cls):
         return cls.impl
+
+    @classmethod
+    def _get_publisher(cls):
+        if not cls.publisher:
+            cls.publisher = transport.pack.PackPublisher()
+        return cls.publisher
 
 
 class ConfigSchema(base.Access):

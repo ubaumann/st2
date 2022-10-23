@@ -29,6 +29,7 @@ from st2common.transport import actionexecutionstate
 from st2common.transport import announcement
 from st2common.transport import execution
 from st2common.transport import liveaction
+from st2common.transport import pack
 from st2common.transport import publishers
 from st2common.transport import reactor
 from st2common.transport import workflow
@@ -112,6 +113,10 @@ STREAM_LIVEACTION_WORK_QUEUE = Queue(
     routing_key=publishers.ANY_RK,
     exclusive=True,
     auto_delete=True,
+)
+
+STREAM_PACK_QUEUE = pack.get_queue(
+    routing_key=publishers.ANY_RK, exclusive=True, auto_delete=True
 )
 
 # TODO: Perhaps we should use pack.action name as routing key

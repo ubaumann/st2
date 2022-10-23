@@ -39,6 +39,9 @@ Fixed
 * Fixed generation of `st2.conf.sample` to show correct syntax for `[sensorcontainer].partition_provider` (space separated `key:value` pairs). #5710
   Contributed by @cognifloyd
 
+* Added publisher to Pack to enable streaming Pack create/update/delete events.
+  Contributed @ubaumann
+
 Added
 ~~~~~
 
